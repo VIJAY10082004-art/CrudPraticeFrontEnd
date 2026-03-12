@@ -1,0 +1,32 @@
+<h2>Add Bike</h2>
+
+<input placeholder="Bike Type" [(ngModel)]="newBike.bikeType">
+<br><br>
+
+<input placeholder="Bike Name" [(ngModel)]="newBike.bikeName">
+<br><br>
+
+<input type="number" placeholder="Bike Price" [(ngModel)]="newBike.bikePrice">
+<br><br>
+
+<button (click)="addBike(newBike)">
+  Add Bike
+</button>
+
+<hr>
+
+<h2>Bike List</h2>
+
+@if (bikeArray().length === 0) {
+  <p>No bikes added</p>
+}
+
+@for (b of bikeArray(); track b.bikeId) {
+
+  <div>
+    <p>
+      {{b.bikeId}} - {{b.bikeType}} - {{b.bikeName}} - {{b.bikePrice}}
+    </p>
+  </div>
+
+}

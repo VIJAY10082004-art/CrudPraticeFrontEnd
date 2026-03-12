@@ -1,0 +1,53 @@
+<form [formGroup]="productForm" (ngSubmit)="addProductComponent()">
+
+  <div>
+    <label>Name</label>
+    <input type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label>Price</label>
+    <input type="number" formControlName="price">
+  </div>
+
+  <div>
+    <label>Quantity</label>
+    <input type="number" formControlName="quantity">
+  </div>
+
+  <button type="submit">Add Product</button>
+
+</form>
+<input type="number" [(ngModel)]="updateId" placeholder="Enter Product ID">
+
+<input type="text" [(ngModel)]="name" placeholder="Enter Name">
+<input type="number" [(ngModel)]="price" placeholder="Enter Price">
+<input type="number" [(ngModel)]="quantity" placeholder="Enter Quantity">
+
+<button (click)="updateProducts()">Update Product</button>
+<input type="number" [(ngModel)]="deleteId" placeholder="Enter Product ID">
+
+<button (click)="deleteProduct(deleteId)">
+  Delete Product
+</button>
+
+<table border="1">
+
+<tr>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Quantity</th>
+</tr>
+
+@for (p of products();  track $index) {
+
+<tr>
+  <td>{{p.name}}</td>
+  <td>{{p.price}}</td>
+  <td>{{p.quantity}}</td>
+</tr>
+
+}
+
+</table>
+
