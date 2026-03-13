@@ -32,7 +32,9 @@ export class ProductComp implements OnInit {
 
  this.productService.addProduct( pro as Product).subscribe(
   ()=>{
-   this.productForm.reset();}
+   this.productForm.reset();
+   this.loadProducts();
+  }
   );
 
 
@@ -40,7 +42,7 @@ export class ProductComp implements OnInit {
 loadProducts() {
   this.productService.getProduct().subscribe((data) => {
     this.products.set(data);
-    this.loadProducts();
+    
   });
 } 
 updateProducts(){
@@ -54,6 +56,8 @@ updateProducts(){
   this.productService.updateProduct(this.updateId, product)
   .subscribe(res => {
     console.log("Product Updated", res);
+    this.loadProducts();
+
   });
 }
 deleteProduct(id: number) {

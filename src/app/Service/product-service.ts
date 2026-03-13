@@ -20,7 +20,8 @@ export class ProductService {
     return this.http.put('https://localhost:7211/api/Product/UpdateProduct/'+id,product)
   }
   getProductById(id:number){
-    return this.http.get<Product>(`https://localhost:7211/api/Product/ViewProductById/${id}`)}
+    return this.http.get<Product>(`https://localhost:7211/api/Product/ViewProductById/${id}`)
+  }
     deleteProduct(id:number){
       return this.http.delete(`https://localhost:7211/api/Product/DeleteProduct/${id}`)
     }

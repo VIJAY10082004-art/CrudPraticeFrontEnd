@@ -1,0 +1,30 @@
+<p>ProductList</p>
+<button routerLink="/add">Add Product</button>
+<br>
+<table border="1">
+
+<tr>
+    <th>Id</th>
+  <th>Name</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Edit</th>
+  <th>Delete</th>
+</tr>
+
+@for (p of products();  track $index) {
+
+<tr>
+   <td>{{p.id}}</td>
+  <td>{{p.name}}</td>
+  <td>{{p.price}}</td>
+  <td>{{p.quantity}}</td>
+  <td>
+<button [routerLink]="['/edit',p.id]">Edit</button></td>
+    <td><button (click)="deleteProduct(p.id!)">Delete</button></td>
+  
+</tr>
+
+}
+
+</table>
